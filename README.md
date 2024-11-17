@@ -1,3 +1,4 @@
+# Indra Ramadhani - 2210010603 - Kelas 5A Reg Pagi - Matakuliah PBO2
 # Aplikasi Perhitungan Diskon
 
 Aplikasi Perhitungan Diskon adalah aplikasi desktop berbasis Java yang digunakan untuk menghitung harga akhir sebuah barang setelah diberikan diskon. Aplikasi ini juga menyediakan fitur tambahan seperti memasukkan kode kupon untuk diskon ekstra dan menyimpan riwayat perhitungan.
