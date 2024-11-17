@@ -72,10 +72,6 @@ public class Diskon extends javax.swing.JFrame {
             }
         });
 
-        jtfakhir.setText("Output Harga Akhir");
-
-        jtfhemat.setText("Hemat");
-
         kupon.setText("Kode Kupon");
 
         riwayatdiskon.setColumns(20);
@@ -93,19 +89,20 @@ public class Diskon extends javax.swing.JFrame {
                     .addComponent(lbldiskon)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblhemat)
-                            .addComponent(jtfakhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfhemat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblakhir)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cbdiskon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(kupon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jtfhitung))
+                            .addComponent(jtfhitung)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblhemat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtfhemat, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtfakhir, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblakhir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(88, 88, 88)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jtfharga, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +161,14 @@ public class Diskon extends javax.swing.JFrame {
             double tambahanDiskon = 0.0;
             if ("DISKON5".equalsIgnoreCase(kodeKupon)) {
                 tambahanDiskon = 5.0; // Diskon tambahan 5% jika kupon valid
+            } else if ("PROMO10".equalsIgnoreCase(kodeKupon)) {
+                tambahanDiskon = 10.0; // Tambahan diskon 10%
+            } else if (!kodeKupon.isEmpty()) {
+                // Jika kode kupon tidak valid, tampilkan pesan error
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Kode kupon tidak valid!",
+                        "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
             }
 
             // Hitung total diskon
